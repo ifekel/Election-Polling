@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+{% block title %}Add Polling Unit Result{% endblock title %}
+
+{% block custom_style %}
+
+{% endblock custom_style %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}

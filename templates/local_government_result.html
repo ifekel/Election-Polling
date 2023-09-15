@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block title %}Local Government Result{% endblock title %}
+
+{% block custom_style %}
+
+{% endblock custom_style %}
+
+{% block content %}
+<h1>Local Government Result</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="selected_lga">Select Local Government:</label>
+    <select name="selected_lga" id="selected_lga">
+        {% for lga in local_governments %}
+        <option value="{{ lga.id }}">{{ lga.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Calculate Total">
+</form>
+<h2>Total Result:</h2>
+<ul>
+    {% for party, score in total_results.items %}
+    <li>{{ party }}: {{ score }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

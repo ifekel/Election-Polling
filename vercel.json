@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "election_results_projects/wsgi.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "election_results_projects/wsgi.py"
+        }
+    ]
+}
